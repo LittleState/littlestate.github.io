@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -21,13 +21,13 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 <meta property="og:type" content="website">
-<meta property="og:title" content="小邦の部落格">
+<meta property="og:title" content="XiaoBang&#39;s Blog">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="小邦の部落格">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="XiaoBang&#39;s Blog">
+<meta property="og:locale" content="en_US">
 <meta property="article:author" content="小邦">
 <meta name="twitter:card" content="summary">
 
@@ -41,10 +41,10 @@
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'zh-CN'
+    lang   : 'en'
   };
 </script>
-<title>小邦の部落格</title>
+<title>XiaoBang's Blog</title>
   
 
 
@@ -96,7 +96,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -107,7 +107,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">小邦の部落格</h1>
+      <h1 class="site-title">XiaoBang's Blog</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -122,10 +122,10 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
   </ul>
 </nav>
 
@@ -146,10 +146,10 @@
     <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
@@ -172,14 +172,20 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">6</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -236,7 +242,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小邦の部落格">
+      <meta itemprop="name" content="XiaoBang's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -249,24 +255,24 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-05-14 09:12:44" itemprop="dateCreated datePublished" datetime="2021-05-14T09:12:44+08:00">2021-05-14</time>
+      <time title="Created: 2021-05-14 09:12:44" itemprop="dateCreated datePublished" datetime="2021-05-14T09:12:44+08:00">2021-05-14</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-29 15:10:59" itemprop="dateModified" datetime="2021-05-29T15:10:59+08:00">2021-05-29</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-29 23:40:54" itemprop="dateModified" datetime="2021-05-29T23:40:54+08:00">2021-05-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+          <a href="/categories/Computer-Networking/" itemprop="url" rel="index"><span itemprop="name">Computer Networking</span></a>
         </span>
     </span>
 
@@ -284,7 +290,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/14/%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/#more" rel="contents">
-                阅读全文 &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -323,7 +329,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小邦の部落格">
+      <meta itemprop="name" content="XiaoBang's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -336,24 +342,24 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-03-12 20:39:17" itemprop="dateCreated datePublished" datetime="2021-03-12T20:39:17+08:00">2021-03-12</time>
+      <time title="Created: 2021-03-12 20:39:17" itemprop="dateCreated datePublished" datetime="2021-03-12T20:39:17+08:00">2021-03-12</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-22 15:03:25" itemprop="dateModified" datetime="2021-05-22T15:03:25+08:00">2021-05-22</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-29 23:38:57" itemprop="dateModified" datetime="2021-05-29T23:38:57+08:00">2021-05-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
+          <a href="/categories/Config/" itemprop="url" rel="index"><span itemprop="name">Config</span></a>
         </span>
     </span>
 
@@ -371,7 +377,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/12/VSCODE-%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -410,7 +416,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小邦の部落格">
+      <meta itemprop="name" content="XiaoBang's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -423,22 +429,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-03-12 20:39:17" itemprop="dateCreated datePublished" datetime="2021-03-12T20:39:17+08:00">2021-03-12</time>
+      <time title="Created: 2021-03-12 20:39:17" itemprop="dateCreated datePublished" datetime="2021-03-12T20:39:17+08:00">2021-03-12</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-22 15:03:37" itemprop="dateModified" datetime="2021-05-22T15:03:37+08:00">2021-05-22</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-29 23:39:06" itemprop="dateModified" datetime="2021-05-29T23:39:06+08:00">2021-05-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
@@ -458,7 +464,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/12/%E5%88%9D%E8%AF%86-Git/#more" rel="contents">
-                阅读全文 &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -497,7 +503,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小邦の部落格">
+      <meta itemprop="name" content="XiaoBang's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -510,22 +516,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-03-07 09:11:47" itemprop="dateCreated datePublished" datetime="2021-03-07T09:11:47+08:00">2021-03-07</time>
+      <time title="Created: 2021-03-07 09:11:47" itemprop="dateCreated datePublished" datetime="2021-03-07T09:11:47+08:00">2021-03-07</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-22 15:03:46" itemprop="dateModified" datetime="2021-05-22T15:03:46+08:00">2021-05-22</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-29 23:39:18" itemprop="dateModified" datetime="2021-05-29T23:39:18+08:00">2021-05-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
@@ -545,7 +551,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/07/%E4%BF%AE%E6%94%B9-Git-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -584,7 +590,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小邦の部落格">
+      <meta itemprop="name" content="XiaoBang's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -597,24 +603,24 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-03-06 15:05:18" itemprop="dateCreated datePublished" datetime="2021-03-06T15:05:18+08:00">2021-03-06</time>
+      <time title="Created: 2021-03-06 15:05:18" itemprop="dateCreated datePublished" datetime="2021-03-06T15:05:18+08:00">2021-03-06</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-22 15:03:15" itemprop="dateModified" datetime="2021-05-22T15:03:15+08:00">2021-05-22</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-29 23:38:50" itemprop="dateModified" datetime="2021-05-29T23:38:50+08:00">2021-05-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
+          <a href="/categories/Config/" itemprop="url" rel="index"><span itemprop="name">Config</span></a>
         </span>
     </span>
 
@@ -632,7 +638,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/06/Hexo-%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -671,7 +677,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小邦の部落格">
+      <meta itemprop="name" content="XiaoBang's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -684,16 +690,16 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-03-05 17:11:06" itemprop="dateCreated datePublished" datetime="2021-03-05T17:11:06+08:00">2021-03-05</time>
+      <time title="Created: 2021-03-05 17:11:06" itemprop="dateCreated datePublished" datetime="2021-03-05T17:11:06+08:00">2021-03-05</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-06 10:50:16" itemprop="dateModified" datetime="2021-03-06T10:50:16+08:00">2021-03-06</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-06 10:50:16" itemprop="dateModified" datetime="2021-03-06T10:50:16+08:00">2021-03-06</time>
       </span>
 
   
@@ -710,7 +716,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/05/hello-world/#more" rel="contents">
-                阅读全文 &raquo;
+                Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -775,7 +781,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -783,12 +789,12 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
     </div>
