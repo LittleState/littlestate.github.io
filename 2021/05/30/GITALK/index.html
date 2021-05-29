@@ -20,26 +20,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:true,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://example.com/tags/index.html">
+<meta name="description" content="为小窝增加评论系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GITALK">
+<meta property="og:url" content="http://example.com/2021/05/30/GITALK/index.html">
 <meta property="og:site_name" content="XiaoBang&#39;s Home">
+<meta property="og:description" content="为小窝增加评论系统">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-06T07:20:47.000Z">
-<meta property="article:modified_time" content="2021-05-29T19:52:47.652Z">
+<meta property="og:image" content="http://example.com/2021/05/30/GITALK/githubapp.jpg">
+<meta property="article:published_time" content="2021-05-29T20:02:15.000Z">
+<meta property="article:modified_time" content="2021-05-29T20:30:46.086Z">
 <meta property="article:author" content="小邦">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/05/30/GITALK/githubapp.jpg">
 
 
-<link rel="canonical" href="http://example.com/tags/">
+<link rel="canonical" href="http://example.com/2021/05/30/GITALK/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:false,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:&quot;&quot;,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;tags&#x2F;index.html&quot;,&quot;path&quot;:&quot;tags&#x2F;index.html&quot;,&quot;title&quot;:&quot;tags&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;05&#x2F;30&#x2F;GITALK&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;30&#x2F;GITALK&#x2F;&quot;,&quot;title&quot;:&quot;GITALK&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>tags | XiaoBang's Home
-</title><script src="/js/config.js"></script>
+<title>GITALK | XiaoBang's Home</title><script src="/js/config.js"></script>
   
 
 
@@ -106,7 +110,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -119,6 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-GITALK"><span class="nav-number">1.</span> <span class="nav-text">部署 GITALK</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A9%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB%E9%A1%B5%E4%B8%8D%E6%98%BE%E7%A4%BA-GITALK-%E8%AF%84%E8%AE%BA%E6%A1%86"><span class="nav-number">1.1.</span> <span class="nav-text">让标签和分类页不显示 GITALK 评论框</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,45 +194,137 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/30/GITALK/">
 
-    
-    
-    
-    <div class="post-block" lang="en"><header class="post-header">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/i.gif">
+      <meta itemprop="name" content="小邦">
+      <meta itemprop="description" content="">
+    </span>
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoBang's Home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GITALK
+        </h1>
 
-<div class="post-meta-container">
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-05-30 04:02:15 / Modified: 04:30:46" itemprop="dateCreated datePublished" datetime="2021-05-30T04:02:15+08:00">2021-05-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Config/" itemprop="url" rel="index"><span itemprop="name">Config</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body"><div class="tag-cloud">
-  <div class="tag-cloud-title">
-    4 tags in total
-  </div>
-  <div class="tag-cloud-tags">
-    <a href="/tags/Git/" style="font-size: 30px;" class="tag-cloud-10">Git</a> <a href="/tags/Hexo/" style="font-size: 30px;" class="tag-cloud-10">Hexo</a> <a href="/tags/Notes/" style="font-size: 12px;" class="tag-cloud-0">Notes</a> <a href="/tags/VSCODE/" style="font-size: 12px;" class="tag-cloud-0">VSCODE</a>
-  </div>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>为小窝增加评论系统</p>
+<span id="more"></span>
 
-      </div>
-      
-      
-      
+<h1 id="部署-GITALK"><a href="#部署-GITALK" class="headerlink" title="部署 GITALK"></a>部署 GITALK</h1><ol>
+<li>首先创建 <a target="_blank" rel="noopener" href="https://github.com/settings/applications/new">Github Application</a></li>
+</ol>
+<p><img src="githubapp.jpg"></p>
+<ol start="2">
+<li>配置<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">enable:</span> <span class="literal">true</span>  </span><br><span class="line"><span class="attr">github_id:</span> <span class="string">&lt;Github</span> <span class="string">账号&gt;</span> <span class="comment"># GitHub repo owner</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">&lt;用来存放评论的仓库&gt;</span> <span class="comment"># Repository name to store issues</span></span><br><span class="line"><span class="attr">client_id:</span> <span class="string">&lt;上面注册的&gt;</span> <span class="comment"># GitHub Application Client ID</span></span><br><span class="line"><span class="attr">client_secret:</span> <span class="string">&lt;&lt;上面注册的&gt;&gt;</span> <span class="comment"># GitHub Application Client Secret</span></span><br><span class="line"><span class="attr">admin_user:</span> <span class="string">&lt;初始化仓库的账号&gt;</span></span><br><span class="line"><span class="attr">proxy:</span> <span class="string">https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token</span> <span class="comment"># This is official proxy adress</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="让标签和分类页不显示-GITALK-评论框"><a href="#让标签和分类页不显示-GITALK-评论框" class="headerlink" title="让标签和分类页不显示 GITALK 评论框"></a>让标签和分类页不显示 GITALK 评论框</h2><ul>
+<li>在 <code>hexo/source</code> 下 <code>tags</code>、<code>categories</code> <strong>文件夹</strong>内的 <code>index.md</code> 中添加 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.chenhanpeng.com/create-own-cors-anywhere-to-resolve-the-request-with-403/">使用 CloudFlare Workers 反向代理</a></li>
+</ol>
+
     </div>
 
     
     
+    
 
-<script src="/js/comments.js"></script>
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>小邦
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://example.com/2021/05/30/GITALK/" title="GITALK">http://example.com/2021/05/30/GITALK/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/14/%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/" rel="prev" title="子网划分">
+                  <i class="fa fa-chevron-left"></i> 子网划分
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div><script src="/js/comments.js"></script>
 </div>
   </main>
 
@@ -286,7 +383,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
 
-<script class="next-config" data-name="gitalk" type="application/json">{&quot;enable&quot;:true,&quot;github_id&quot;:&quot;LittleState&quot;,&quot;repo&quot;:&quot;littlestate.github.io&quot;,&quot;client_id&quot;:&quot;944410c26715170c333d&quot;,&quot;client_secret&quot;:&quot;6545e069a7938ac909a5ca56f7fdc8bee3cdd645&quot;,&quot;admin_user&quot;:&quot;LittleState&quot;,&quot;distraction_free_mode&quot;:true,&quot;proxy&quot;:&quot;https:&#x2F;&#x2F;myblog.lvliangzebang.workers.dev&#x2F;?https:&#x2F;&#x2F;github.com&#x2F;login&#x2F;oauth&#x2F;access_token&quot;,&quot;language&quot;:null,&quot;js&quot;:&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1.7.2&#x2F;dist&#x2F;gitalk.min.js&quot;,&quot;path_md5&quot;:&quot;f47af1d1eda4d807b02bba32be15120b&quot;}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{&quot;enable&quot;:true,&quot;github_id&quot;:&quot;LittleState&quot;,&quot;repo&quot;:&quot;littlestate.github.io&quot;,&quot;client_id&quot;:&quot;944410c26715170c333d&quot;,&quot;client_secret&quot;:&quot;6545e069a7938ac909a5ca56f7fdc8bee3cdd645&quot;,&quot;admin_user&quot;:&quot;LittleState&quot;,&quot;distraction_free_mode&quot;:true,&quot;proxy&quot;:&quot;https:&#x2F;&#x2F;myblog.lvliangzebang.workers.dev&#x2F;?https:&#x2F;&#x2F;github.com&#x2F;login&#x2F;oauth&#x2F;access_token&quot;,&quot;language&quot;:null,&quot;js&quot;:&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1.7.2&#x2F;dist&#x2F;gitalk.min.js&quot;,&quot;path_md5&quot;:&quot;a5628d66c7d697507a129225d9393414&quot;}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
