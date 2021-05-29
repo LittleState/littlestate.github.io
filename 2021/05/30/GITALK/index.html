@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/05/30/GITALK/githubapp.jpg">
 <meta property="article:published_time" content="2021-05-29T20:02:15.000Z">
-<meta property="article:modified_time" content="2021-05-29T20:30:46.086Z">
+<meta property="article:modified_time" content="2021-05-29T20:44:40.598Z">
 <meta property="article:author" content="小邦">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-05-30 04:02:15 / Modified: 04:30:46" itemprop="dateCreated datePublished" datetime="2021-05-30T04:02:15+08:00">2021-05-30</time>
+      <time title="Created: 2021-05-30 04:02:15 / Modified: 04:44:40" itemprop="dateCreated datePublished" datetime="2021-05-30T04:02:15+08:00">2021-05-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -267,13 +267,19 @@
 </ol>
 <p><img src="githubapp.jpg"></p>
 <ol start="2">
-<li>配置<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">enable:</span> <span class="literal">true</span>  </span><br><span class="line"><span class="attr">github_id:</span> <span class="string">&lt;Github</span> <span class="string">账号&gt;</span> <span class="comment"># GitHub repo owner</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">&lt;用来存放评论的仓库&gt;</span> <span class="comment"># Repository name to store issues</span></span><br><span class="line"><span class="attr">client_id:</span> <span class="string">&lt;上面注册的&gt;</span> <span class="comment"># GitHub Application Client ID</span></span><br><span class="line"><span class="attr">client_secret:</span> <span class="string">&lt;&lt;上面注册的&gt;&gt;</span> <span class="comment"># GitHub Application Client Secret</span></span><br><span class="line"><span class="attr">admin_user:</span> <span class="string">&lt;初始化仓库的账号&gt;</span></span><br><span class="line"><span class="attr">proxy:</span> <span class="string">https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token</span> <span class="comment"># This is official proxy adress</span></span><br></pre></td></tr></table></figure></li>
+<li><p>GITALK 配置</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">enable:</span> <span class="literal">true</span>  </span><br><span class="line"><span class="attr">github_id:</span> <span class="string">&lt;Github</span> <span class="string">账号&gt;</span> <span class="comment"># GitHub repo owner</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">&lt;用来存放评论的仓库&gt;</span> <span class="comment"># Repository name to store issues</span></span><br><span class="line"><span class="attr">client_id:</span> <span class="string">&lt;上面注册的&gt;</span> <span class="comment"># GitHub Application Client ID</span></span><br><span class="line"><span class="attr">client_secret:</span> <span class="string">&lt;&lt;上面注册的&gt;&gt;</span> <span class="comment"># GitHub Application Client Secret</span></span><br><span class="line"><span class="attr">admin_user:</span> <span class="string">&lt;初始化仓库的账号&gt;</span></span><br><span class="line"><span class="attr">proxy:</span> <span class="string">https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token</span> <span class="comment"># This is official proxy adress</span></span><br></pre></td></tr></table></figure></li>
+<li><p>Workers 配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">whitelist = [ &quot;.*&quot; ]  # 所有请求可用</span><br><span class="line">whitelist = [ &quot;^http.?://littlestate.github.io$&quot;, &quot;littlestate.github.io$&quot; ]</span><br></pre></td></tr></table></figure></li>
+<li><p>最后一步<br>将 <code>https://cors-anywhere.herokuapp.com</code> 替换为 Workers 中右边的地址</p>
+</li>
 </ol>
 <h2 id="让标签和分类页不显示-GITALK-评论框"><a href="#让标签和分类页不显示-GITALK-评论框" class="headerlink" title="让标签和分类页不显示 GITALK 评论框"></a>让标签和分类页不显示 GITALK 评论框</h2><ul>
 <li>在 <code>hexo/source</code> 下 <code>tags</code>、<code>categories</code> <strong>文件夹</strong>内的 <code>index.md</code> 中添加 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://www.chenhanpeng.com/create-own-cors-anywhere-to-resolve-the-request-with-403/">使用 CloudFlare Workers 反向代理</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Hanpeng-Chen/cloudflare-cors-anywhere/blob/master/index.js">cors-anywhere 框架</a></li>
 </ol>
 
     </div>
