@@ -11,6 +11,11 @@ jobs:
     container:
       image: ubuntu:latest
     steps:
+    - name: Setup
+      run: |
+        apt install git
+        apt install hugo
+
     - uses: actions/checkout@v4
       with:
         submodules: true
