@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     container:
-      image: ubuntu:22.04
+      image: alpine/git:latest
     steps:
     # - name: Setup
     #   run: |
