@@ -13,6 +13,7 @@ jobs:
     steps:
     - name: Setup
       run: |
+        apt-get -y update
         apt-get -y install git
         apt-get -y install hugo
 
