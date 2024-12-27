@@ -29,10 +29,10 @@ jobs:
         submodules: true
         fetch-depth: 0
 
-    - name: Build Hugo site
+    - name: Build
       run: hugo --minify
 
-    - name: Deploy to GitHub Pages
+    - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
