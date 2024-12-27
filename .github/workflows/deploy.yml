@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     container:
-      image: ubuntu:20.04
+      image: ubuntu:22.04
     steps:
     # - name: Setup
     #   run: |
