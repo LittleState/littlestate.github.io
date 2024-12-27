@@ -13,17 +13,15 @@ jobs:
     steps:
     - name: Setup
       run: |
-        apt-get -y update
-        apt-get -y install git
-        apt-get -y install hugo
+        LATEST_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
+        wget https://github.com/gohugoio/hugo/releases/download/v${LATEST_VERSION}/hugo_${LATEST_VERSION}_linux-arm64.tar.gz
+        tar -xvzf hugo_${LATEST_VERSION}_linux-arm64.tar.gz
+        mv hugo /usr/local/bin
 
     - uses: actions/checkout@v4
       with:
         submodules: true
         fetch-depth: 0
-
-    - name: Setup Hugo
-      run: apt install hugo
 
     - name: Build Hugo site
       run: hugo --minify
