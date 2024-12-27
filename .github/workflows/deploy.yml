@@ -9,11 +9,12 @@ jobs:
   deploy:
     runs-on: self-hosted
     container:
-      image: alpine/git:latest
+      image: ubuntu:latest
     steps:
     - name: Setup
       run: |
-        doas apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community hugo
+        apt-get -y install git
+        apt-get -y install hugo
 
     - uses: actions/checkout@v4
       with:
