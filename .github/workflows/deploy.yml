@@ -11,12 +11,17 @@ jobs:
     container:
       image: ubuntu:20.04
     steps:
-    - name: Setup
-      run: |
-        LATEST_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
-        wget https://github.com/gohugoio/hugo/releases/download/v${LATEST_VERSION}/hugo_${LATEST_VERSION}_linux-arm64.tar.gz
-        tar -xvzf hugo_${LATEST_VERSION}_linux-arm64.tar.gz
-        mv hugo /usr/local/bin
+    # - name: Setup
+    #   run: |
+    #     LATEST_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
+    #     wget https://github.com/gohugoio/hugo/releases/download/v${LATEST_VERSION}/hugo_${LATEST_VERSION}_linux-arm64.tar.gz
+    #     tar -xvzf hugo_${LATEST_VERSION}_linux-arm64.tar.gz
+    #     mv hugo /usr/local/bin
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: 'latest'
 
     - uses: actions/checkout@v4
       with:
