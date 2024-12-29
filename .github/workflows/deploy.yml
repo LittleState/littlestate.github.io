@@ -17,13 +17,6 @@ jobs:
     container:
       image: bitnami/git
     steps:
-    # - name: Setup
-    #   run: |
-    #     LATEST_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
-    #     wget https://github.com/gohugoio/hugo/releases/download/v${LATEST_VERSION}/hugo_${LATEST_VERSION}_linux-arm64.tar.gz
-    #     tar -xvzf hugo_${LATEST_VERSION}_linux-arm64.tar.gz
-    #     mv hugo /usr/local/bin
-
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
@@ -37,8 +30,28 @@ jobs:
     - name: Build
       run: hugo --minify
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+    # - name: Deploy
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: ./public
+    - name: Configure Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Deploy to GitHub Pages
+      env:
+        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        set -x
+        # 初始化 gh-pages 分支
+        git clone --branch gh-pages --single-branch https://x-access-token:${REPO_TOKEN}@github.com/${{ github.repository }} gh-pages
+        cd gh-pages
+        # 清空旧内容并复制新内容
+        rm -rf ./*
+        cp -r ../public/* ./
+        # 提交并推送
+        git add --all
+        git commit -m "Deploy site on $(date +'%Y-%m-%d %H:%M:%S')"
+        git push origin gh-pages --force
