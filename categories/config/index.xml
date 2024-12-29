@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Config on Avalon</title><link>https://littlestate.github.io/categories/config/</link><description>Recent content in Config on Avalon</description><generator>Hugo -- 0.140.1</generator><language>zh-cn</language><lastBuildDate>Sun, 30 May 2021 04:02:15 +0000</lastBuildDate><atom:link href="https://littlestate.github.io/categories/config/index.xml" rel="self" type="application/rss+xml"/><item><title>GITALK</title><link>https://littlestate.github.io/posts/gitalk/</link><pubDate>Sun, 30 May 2021 04:02:15 +0000</pubDate><guid>https://littlestate.github.io/posts/gitalk/</guid><description>&lt;p>为小窝增加评论系统&lt;/p>
+&lt;!-- more -->
+&lt;h1 id="部署-gitalk">部署 GITALK&lt;/h1>
+&lt;ol>
+&lt;li>首先创建 &lt;a href="https://github.com/settings/applications/new">Github Application&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img loading="lazy" src="https://littlestate.github.io/posts/gitalk/githubapp.jpg">&lt;/p>
+&lt;ol start="2">
+&lt;li>GITALK 配置&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yml" data-lang="yml">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">enable&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">github_id&lt;/span>: &lt;span style="color:#ae81ff">&amp;lt;Github 账号&amp;gt;&lt;/span> &lt;span style="color:#75715e"># GitHub repo owner&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">repo&lt;/span>: &lt;span style="color:#ae81ff">&amp;lt;用来存放评论的仓库&amp;gt;&lt;/span> &lt;span style="color:#75715e"># Repository name to store issues&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">client_id&lt;/span>: &lt;span style="color:#ae81ff">&amp;lt;上面注册的&amp;gt;&lt;/span> &lt;span style="color:#75715e"># GitHub Application Client ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">client_secret&lt;/span>: &lt;span style="color:#ae81ff">&amp;lt;&amp;lt;上面注册的&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#75715e"># GitHub Application Client Secret&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">admin_user&lt;/span>: &lt;span style="color:#ae81ff">&amp;lt;初始化仓库的账号&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">proxy&lt;/span>: &lt;span style="color:#ae81ff">https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token&lt;/span> &lt;span style="color:#75715e"># This is official proxy adress&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>Workers 配置&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code> whitelist = [ &amp;#34;.*&amp;#34; ] # 所有请求可用
+whitelist = [ &amp;#34;^http.?://littlestate.github.io$&amp;#34;, &amp;#34;littlestate.github.io$&amp;#34; ]
+&lt;/code>&lt;/pre>&lt;ol start="4">
+&lt;li>最后一步
+将 &lt;code>https://cors-anywhere.herokuapp.com&lt;/code> 替换为 Workers 中右边的地址&lt;/li>
+&lt;/ol>
+&lt;h2 id="让标签和分类页不显示-gitalk-评论框">让标签和分类页不显示 GITALK 评论框&lt;/h2>
+&lt;ul>
+&lt;li>在 &lt;code>hexo/source&lt;/code> 下 &lt;code>tags&lt;/code>、&lt;code>categories&lt;/code> &lt;strong>文件夹&lt;/strong>内的 &lt;code>index.md&lt;/code> 中添加&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yml" data-lang="yml">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">comments&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="参考">参考&lt;/h1>
+&lt;ol>
+&lt;li>&lt;a href="https://www.chenhanpeng.com/create-own-cors-anywhere-to-resolve-the-request-with-403/">使用 CloudFlare Workers 反向代理&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Hanpeng-Chen/cloudflare-cors-anywhere/blob/master/index.js">cors-anywhere 框架&lt;/a>&lt;/li>
+&lt;/ol></description></item><item><title>VSCODE 配置</title><link>https://littlestate.github.io/posts/vscode-%E9%85%8D%E7%BD%AE/</link><pubDate>Fri, 12 Mar 2021 20:39:17 +0000</pubDate><guid>https://littlestate.github.io/posts/vscode-%E9%85%8D%E7%BD%AE/</guid><description>&lt;p>记录一些 VSCODE 配置&lt;/p></description></item><item><title>Hexo 搭建日记</title><link>https://littlestate.github.io/posts/hexo-%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B0/</link><pubDate>Sat, 06 Mar 2021 15:05:18 +0000</pubDate><guid>https://littlestate.github.io/posts/hexo-%E6%90%AD%E5%BB%BA%E6%97%A5%E8%AE%B0/</guid><description>&lt;p>记录一下第一次搭建 Hexo 的各种问题&lt;/p>
+&lt;!-- more -->
+&lt;h2 id="教程">教程&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="https://hexo.io/zh-cn/">Hexo 官方教程&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo 搭建个人网站详细教程&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/35668237">超详细 Hexo+Github 博客搭建小白教程&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://aiellochan.com/2018/02/13/hexo/Hexo-%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%A4%9A%E4%B8%AA-categories/">多级 categories&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h3 id="hexo-基本操作">hexo 基本操作：&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ hexo g &lt;span style="color:#75715e">#生成静态文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ hexo new &lt;span style="color:#f92672">[&lt;/span>layout&lt;span style="color:#f92672">]&lt;/span> &amp;lt;title&amp;gt; &lt;span style="color:#75715e">#layout 有post、draft、page&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ hexo s &lt;span style="color:#75715e">#启动本地 Server&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ hexo deploy &lt;span style="color:#75715e">#可简写为d&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置文件">配置文件&lt;/h2>
+&lt;h3 id="站点配置文件">站点配置文件：&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yml" data-lang="yml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">$ line_number&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span> &lt;span style="color:#75715e">#不显示代码块序号&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">$ post_asset_folder&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#75715e">#新建 post 文章时会顺带创建一个文件夹，用来存素材&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="主题配置文件">主题配置文件：&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yml" data-lang="yml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">$ scheme&lt;/span>: &lt;span style="color:#ae81ff">Gemini &lt;/span> &lt;span style="color:#75715e">#主题布局&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">$ busuanzi_count: enable&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#75715e">#开启访问统计&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">$ copy_button: enable&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#75715e">#开启代码块一键复制&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">$ creative_commons&lt;/span>: &lt;span style="color:#75715e">#增加版权信息&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="主题">主题&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="https://blog.mrzorg.top/Hexo/2020-02-12-hero-next-theme-settings/">主题美化&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://forestneo.com/2018/12/01/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE-Hexo-NexT%E4%B8%BB%E9%A2%98%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%88%B1%E5%BF%83%E7%89%B9%E6%95%88/">设置点击爱心&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://theme-next.iissnan.com/">NexT (目前)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://volantis.js.org/">Volantis&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Mogeko/mogege">Hugo主题-Mogeko&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="遇到的一些问题">遇到的一些问题&lt;/h2>
+&lt;p>&lt;a href="https://www.cnblogs.com/lfri/p/12221359.html">Hexo next 主题配置右侧栏的分类和标签打开的是空白&lt;/a>&lt;/p></description></item></channel></rss>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Git on Avalon</title><link>https://littlestate.github.io/categories/git/</link><description>Recent content in Git on Avalon</description><generator>Hugo -- 0.140.1</generator><language>zh-cn</language><lastBuildDate>Fri, 12 Mar 2021 20:39:16 +0000</lastBuildDate><atom:link href="https://littlestate.github.io/categories/git/index.xml" rel="self" type="application/rss+xml"/><item><title>初识 Git</title><link>https://littlestate.github.io/posts/%E5%88%9D%E8%AF%86-git/</link><pubDate>Fri, 12 Mar 2021 20:39:16 +0000</pubDate><guid>https://littlestate.github.io/posts/%E5%88%9D%E8%AF%86-git/</guid><description>&lt;p>第一次使用Git&lt;/p></description></item><item><title>修改 Git 代理设置出现的问题</title><link>https://littlestate.github.io/posts/%E4%BF%AE%E6%94%B9-git-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link><pubDate>Sun, 07 Mar 2021 09:11:47 +0000</pubDate><guid>https://littlestate.github.io/posts/%E4%BF%AE%E6%94%B9-git-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid><description>&lt;p>关于我因 git clone 慢而去给 git 设置代理而引发的那些事&lt;/p>
+&lt;!-- more -->
+&lt;h2 id="使用到的命令">使用到的命令&lt;/h2>
+&lt;pre tabindex="0">&lt;code>$ git config -l 查看所有配置
+$ git config --global -l
+&lt;/code>&lt;/pre>&lt;h2 id="过程">过程&lt;/h2>
+&lt;p>按着 &lt;a href="https://juejin.cn/post/6844903862961176583">一招 git clone 加速&lt;/a> 这篇文章设置了 git 的代理但是没用（应该是自己没设置正确），现在想想应该是当时没有 reset 仅代理 github 的配置，导致从 github 上下载项目时还是走错误的代理设置。
+&lt;strong>当时使用这两个命令重置&lt;/strong> 。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ git config --global --unset http.proxy
+$ git config --global --unset https.proxy
+&lt;/code>&lt;/pre>&lt;p>因为以上的问题，还影响到了 hexo 的一些操作，比如 deploy 和 init。&lt;/p>
+&lt;p>尝试一番发现（还卸载重装了 git）只是因为第一步使用 reset 只是重置了这两项，还有两条仅代理 github 的配置没有重置。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ git config --global http.proxy http://127.0.0.1:1081
+$ git config --global https.proxy https://127.0.0.1:1081
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>使用这两条命令重置代理 github 的配置。&lt;/strong>&lt;/p></description></item></channel></rss>

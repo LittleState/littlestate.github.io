@@ -1,0 +1,92 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>SSH Port Forwarding | Avalon</title>
+<meta name=keywords content><meta name=description content="动态转发
+因为 SSH 服务器要去访问哪一个网站，完全是动态的，取决于原始通信，动态转发只需要把本地端口绑定到 SSH 服务器，所以叫动态转发。
+$ ssh -D port tunnel-host -N
+
+
+D 表示动态转发，所有经过这个本地监听端口的流量，都通过 SSH 隧道。
+
+
+N 参数用于端口转发，表示建立的 SSH 只用于端口转发，不能执行远程命令，这样可以提供安全性。
+
+
+本地转发（正向代理）
+
+$ ssh -L port:host:hostport tunnel-host -N
+上面就是将 tunnel-host 作为跳板机，在本地 port 端口与目标服务器（这里是 host）的 hostport　端口之间建立了一个 ssh 隧道。
+$ ssh -L 8080:www:80 tunnel-host -N
+
+
+访问 clienthost 8080 端口时，就相当于通过跳板服务器 tunnel-host 访问 www:80。
+
+
+www:80 可以是跳板机局域网中的一个设备。
+
+
+远程转发（反向代理）
+
+$ ssh -R port:host:hostport tunnel-host -N
+访问 tunnel-host:port 会访问到本地的 host:hostport，可以通过这个功能将本地服务转发出去。
+$ ssh -R 8080:192.168.1.100:80 root@x.x.x.x -p 0~65535 -N
+如上，访问公网 x.x.x.x:8080 端口的话，可以访问到内网的 192.168.1.100:80。"><meta name=author content><link rel=canonical href=https://littlestate.github.io/posts/ssh-port-forwarding/><link crossorigin=anonymous href=/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css integrity="sha256-1vzSCk+4bvpN+sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as=style><link rel=icon href=https://littlestate.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://littlestate.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://littlestate.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://littlestate.github.io/apple-touch-icon.png><link rel=mask-icon href=https://littlestate.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://littlestate.github.io/posts/ssh-port-forwarding/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://littlestate.github.io/posts/ssh-port-forwarding/"><meta property="og:site_name" content="Avalon"><meta property="og:title" content="SSH Port Forwarding"><meta property="og:description" content="动态转发 因为 SSH 服务器要去访问哪一个网站，完全是动态的，取决于原始通信，动态转发只需要把本地端口绑定到 SSH 服务器，所以叫动态转发。
+$ ssh -D port tunnel-host -N D 表示动态转发，所有经过这个本地监听端口的流量，都通过 SSH 隧道。
+N 参数用于端口转发，表示建立的 SSH 只用于端口转发，不能执行远程命令，这样可以提供安全性。
+本地转发（正向代理） $ ssh -L port:host:hostport tunnel-host -N 上面就是将 tunnel-host 作为跳板机，在本地 port 端口与目标服务器（这里是 host）的 hostport　端口之间建立了一个 ssh 隧道。
+$ ssh -L 8080:www:80 tunnel-host -N 访问 clienthost 8080 端口时，就相当于通过跳板服务器 tunnel-host 访问 www:80。
+www:80 可以是跳板机局域网中的一个设备。
+远程转发（反向代理） $ ssh -R port:host:hostport tunnel-host -N 访问 tunnel-host:port 会访问到本地的 host:hostport，可以通过这个功能将本地服务转发出去。
+$ ssh -R 8080:192.168.1.100:80 root@x.x.x.x -p 0~65535 -N 如上，访问公网 x.x.x.x:8080 端口的话，可以访问到内网的 192.168.1.100:80。"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-11-23T22:31:45+00:00"><meta property="article:modified_time" content="2021-11-23T22:31:45+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="SSH Port Forwarding"><meta name=twitter:description content="动态转发
+因为 SSH 服务器要去访问哪一个网站，完全是动态的，取决于原始通信，动态转发只需要把本地端口绑定到 SSH 服务器，所以叫动态转发。
+$ ssh -D port tunnel-host -N
+
+
+D 表示动态转发，所有经过这个本地监听端口的流量，都通过 SSH 隧道。
+
+
+N 参数用于端口转发，表示建立的 SSH 只用于端口转发，不能执行远程命令，这样可以提供安全性。
+
+
+本地转发（正向代理）
+
+$ ssh -L port:host:hostport tunnel-host -N
+上面就是将 tunnel-host 作为跳板机，在本地 port 端口与目标服务器（这里是 host）的 hostport　端口之间建立了一个 ssh 隧道。
+$ ssh -L 8080:www:80 tunnel-host -N
+
+
+访问 clienthost 8080 端口时，就相当于通过跳板服务器 tunnel-host 访问 www:80。
+
+
+www:80 可以是跳板机局域网中的一个设备。
+
+
+远程转发（反向代理）
+
+$ ssh -R port:host:hostport tunnel-host -N
+访问 tunnel-host:port 会访问到本地的 host:hostport，可以通过这个功能将本地服务转发出去。
+$ ssh -R 8080:192.168.1.100:80 root@x.x.x.x -p 0~65535 -N
+如上，访问公网 x.x.x.x:8080 端口的话，可以访问到内网的 192.168.1.100:80。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://littlestate.github.io/posts/"},{"@type":"ListItem","position":2,"name":"SSH Port Forwarding","item":"https://littlestate.github.io/posts/ssh-port-forwarding/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SSH Port Forwarding","name":"SSH Port Forwarding","description":"动态转发 因为 SSH 服务器要去访问哪一个网站，完全是动态的，取决于原始通信，动态转发只需要把本地端口绑定到 SSH 服务器，所以叫动态转发。\n$ ssh -D port tunnel-host -N D 表示动态转发，所有经过这个本地监听端口的流量，都通过 SSH 隧道。\nN 参数用于端口转发，表示建立的 SSH 只用于端口转发，不能执行远程命令，这样可以提供安全性。\n本地转发（正向代理） $ ssh -L port:host:hostport tunnel-host -N 上面就是将 tunnel-host 作为跳板机，在本地 port 端口与目标服务器（这里是 host）的 hostport　端口之间建立了一个 ssh 隧道。\n$ ssh -L 8080:www:80 tunnel-host -N 访问 clienthost 8080 端口时，就相当于通过跳板服务器 tunnel-host 访问 www:80。\nwww:80 可以是跳板机局域网中的一个设备。\n远程转发（反向代理） $ ssh -R port:host:hostport tunnel-host -N 访问 tunnel-host:port 会访问到本地的 host:hostport，可以通过这个功能将本地服务转发出去。\n$ ssh -R 8080:192.168.1.100:80 root@x.x.x.x -p 0~65535 -N 如上，访问公网 x.x.x.x:8080 端口的话，可以访问到内网的 192.168.1.100:80。\n","keywords":[],"articleBody":"动态转发 因为 SSH 服务器要去访问哪一个网站，完全是动态的，取决于原始通信，动态转发只需要把本地端口绑定到 SSH 服务器，所以叫动态转发。\n$ ssh -D port tunnel-host -N D 表示动态转发，所有经过这个本地监听端口的流量，都通过 SSH 隧道。\nN 参数用于端口转发，表示建立的 SSH 只用于端口转发，不能执行远程命令，这样可以提供安全性。\n本地转发（正向代理） $ ssh -L port:host:hostport tunnel-host -N 上面就是将 tunnel-host 作为跳板机，在本地 port 端口与目标服务器（这里是 host）的 hostport　端口之间建立了一个 ssh 隧道。\n$ ssh -L 8080:www:80 tunnel-host -N 访问 clienthost 8080 端口时，就相当于通过跳板服务器 tunnel-host 访问 www:80。\nwww:80 可以是跳板机局域网中的一个设备。\n远程转发（反向代理） $ ssh -R port:host:hostport tunnel-host -N 访问 tunnel-host:port 会访问到本地的 host:hostport，可以通过这个功能将本地服务转发出去。\n$ ssh -R 8080:192.168.1.100:80 root@x.x.x.x -p 0~65535 -N 如上，访问公网 x.x.x.x:8080 端口的话，可以访问到内网的 192.168.1.100:80。\n实例 简易 VPN $ ssh -L 233:192.168.10.10:22 root@192.168.10.11 -N 192.168.10.10 是 64-bit kali（A），192.168.10.11 是 32-bit kali（B）。 192.168.10.1 是宿主机（localhost） IP。 这里举例如果 A 禁止了 localhost 的 IP 地址，使其无法使用 ssh 访问 A，模拟网络中被防火墙隔离的情况。\n但是这时 B 是一台没有被封禁的机器，就可以通过上述操作从 localhost 连接到 B 建立端口转发。之后如果访问 localhost 本机的 8080 端口，就会通过 B 来访问到 A 的 22 端口，这样就绕过了无法访问的情况。\n两级跳板 端口转发可以有多级，比如新建两个 SSH 隧道，第一个隧道转发给第二个隧道，第二个隧道才能访问目标服务器。\n首先，在本机新建第一级隧道。\n$ ssh -L 7999:localhost:2999 tunnel1-host 上面命令在本地7999端口与tunnel1-host之间建立一条隧道，隧道的出口是tunnel1-host的localhost:2999，也就是tunnel1-host收到本机的请求以后，转发给自己的2999端口。\n然后，在第一台跳板机（tunnel1-host）执行下面的命令，新建第二级隧道。\n$ ssh -L 2999:target-host:7999 tunnel2-host -N 上面命令将第一台跳板机tunnel1-host的2999端口，通过第二台跳板机tunnel2-host，连接到目标服务器target-host的7999端口。\n最终效果就是，访问本机的7999端口，就会转发到target-host的7999端口。\nconfig # ~/.ssh/config Host * Port 2222 Host remoteserver HostName remote.example.com User neo Port 2112 $ ssh remoteserver # 等同于 $ ssh -p 2112 neo@remote.example.com 参考：\nSSH 端口转发，阮一峰 An Illustrated Guide to SSH Tunnels, Scott Wiersdorf SSH 远程端口转发，小马过河 附录\n/etc/hosts.allow /etc/hosts.deny ","wordCount":"182","inLanguage":"en","datePublished":"2021-11-23T22:31:45Z","dateModified":"2021-11-23T22:31:45Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://littlestate.github.io/posts/ssh-port-forwarding/"},"publisher":{"@type":"Organization","name":"Avalon","logo":{"@type":"ImageObject","url":"https://littlestate.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://littlestate.github.io/ accesskey=h title="Avalon (Alt + H)">Avalon</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">SSH Port Forwarding</h1><div class=post-meta><span title='2021-11-23 22:31:45 +0000 UTC'>November 23, 2021</span></div></header><div class=post-content><h2 id=动态转发>动态转发<a hidden class=anchor aria-hidden=true href=#动态转发>#</a></h2><p>因为 SSH 服务器要去访问哪一个网站，完全是动态的，取决于原始通信，动态转发只需要把本地端口绑定到 SSH 服务器，所以叫动态转发。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh -D port tunnel-host -N
+</span></span></code></pre></div><ul><li><p>D 表示动态转发，所有经过这个本地监听端口的流量，都通过 SSH 隧道。</p></li><li><p>N 参数用于端口转发，表示建立的 SSH 只用于端口转发，不能执行远程命令，这样可以提供安全性。</p></li></ul><h2 id=本地转发正向代理>本地转发（正向代理）<a hidden class=anchor aria-hidden=true href=#本地转发正向代理>#</a></h2><p><img alt=cpf loading=lazy src=/posts/ssh-port-forwarding/simple-tunnel.png></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh -L port:host:hostport tunnel-host -N
+</span></span></code></pre></div><p>上面就是将 tunnel-host 作为跳板机，在本地 port 端口与目标服务器（这里是 host）的 hostport　端口之间建立了一个 ssh 隧道。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh -L 8080:www:80 tunnel-host -N
+</span></span></code></pre></div><ul><li><p>访问 clienthost 8080 端口时，就相当于通过跳板服务器 tunnel-host 访问 www:80。</p></li><li><p>www:80 可以是跳板机局域网中的一个设备。</p></li></ul><h2 id=远程转发反向代理>远程转发（反向代理）<a hidden class=anchor aria-hidden=true href=#远程转发反向代理>#</a></h2><p><img alt=rpf loading=lazy src=/posts/ssh-port-forwarding/rpf.jpg></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh -R port:host:hostport tunnel-host -N
+</span></span></code></pre></div><p>访问 tunnel-host:port 会访问到本地的 host:hostport，可以通过这个功能将本地服务转发出去。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh -R 8080:192.168.1.100:80 root@x.x.x.x -p 0~65535 -N
+</span></span></code></pre></div><p>如上，访问公网 x.x.x.x:8080 端口的话，可以访问到内网的 192.168.1.100:80。</p><h2 id=实例>实例<a hidden class=anchor aria-hidden=true href=#实例>#</a></h2><h3 id=简易-vpn>简易 VPN<a hidden class=anchor aria-hidden=true href=#简易-vpn>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh -L 233:192.168.10.10:22 root@192.168.10.11 -N
+</span></span></code></pre></div><ul><li>192.168.10.10 是 64-bit kali（A），192.168.10.11 是 32-bit kali（B）。</li><li>192.168.10.1 是宿主机（localhost） IP。</li></ul><p>这里举例如果 A 禁止了 localhost 的 IP 地址，使其无法使用 ssh 访问 A，模拟网络中被防火墙隔离的情况。</p><p>但是这时 B 是一台没有被封禁的机器，就可以通过上述操作从 localhost 连接到 B 建立端口转发。之后如果访问 localhost 本机的 8080 端口，就会通过 B 来访问到 A 的 22 端口，这样就绕过了无法访问的情况。</p><h3 id=两级跳板>两级跳板<a hidden class=anchor aria-hidden=true href=#两级跳板>#</a></h3><p><img alt=two loading=lazy src=/posts/ssh-port-forwarding/two.png></p><p>端口转发可以有多级，比如新建两个 SSH 隧道，第一个隧道转发给第二个隧道，第二个隧道才能访问目标服务器。</p><p>首先，在本机新建第一级隧道。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh -L 7999:localhost:2999 tunnel1-host
+</span></span></code></pre></div><p>上面命令在本地7999端口与tunnel1-host之间建立一条隧道，隧道的出口是tunnel1-host的localhost:2999，也就是tunnel1-host收到本机的请求以后，转发给自己的2999端口。</p><p>然后，在第一台跳板机（tunnel1-host）执行下面的命令，新建第二级隧道。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh -L 2999:target-host:7999 tunnel2-host -N
+</span></span></code></pre></div><p>上面命令将第一台跳板机tunnel1-host的2999端口，通过第二台跳板机tunnel2-host，连接到目标服务器target-host的7999端口。</p><p>最终效果就是，访问本机的7999端口，就会转发到target-host的7999端口。</p><h2 id=config>config<a hidden class=anchor aria-hidden=true href=#config>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># ~/.ssh/config</span>
+</span></span><span style=display:flex><span>Host *
+</span></span><span style=display:flex><span>     Port <span style=color:#ae81ff>2222</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Host remoteserver
+</span></span><span style=display:flex><span>     HostName remote.example.com
+</span></span><span style=display:flex><span>     User neo
+</span></span><span style=display:flex><span>     Port <span style=color:#ae81ff>2112</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ ssh remoteserver
+</span></span><span style=display:flex><span><span style=color:#75715e># 等同于</span>
+</span></span><span style=display:flex><span>$ ssh -p <span style=color:#ae81ff>2112</span> neo@remote.example.com
+</span></span></code></pre></div><p>参考：</p><ul><li><a href=https://wangdoc.com/ssh/port-forwarding.html>SSH 端口转发，阮一峰</a></li><li><a href=https://solitum.net/posts/an-illustrated-guide-to-ssh-tunnels/>An Illustrated Guide to SSH Tunnels, Scott Wiersdorf</a></li><li><a href=https://lvii.github.io/system/2013-10-08-ssh-remote-port-forwarding/>SSH 远程端口转发，小马过河</a></li></ul><p>附录</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>/etc/hosts.allow
+</span></span><span style=display:flex><span>/etc/hosts.deny
+</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2024 <a href=https://littlestate.github.io/>Avalon</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
