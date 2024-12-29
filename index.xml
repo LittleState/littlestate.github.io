@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Avalon</title><link>https://littlestate.github.io/</link><description>Recent content on Avalon</description><generator>Hugo -- 0.140.1</generator><language>zh-cn</language><lastBuildDate>Sat, 28 Dec 2024 01:06:37 +0800</lastBuildDate><atom:link href="https://littlestate.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>My First Post</title><link>https://littlestate.github.io/posts/my-first-post/</link><pubDate>Sat, 28 Dec 2024 01:06:37 +0800</pubDate><guid>https://littlestate.github.io/posts/my-first-post/</guid><description>&lt;h1 id="title">title&lt;/h1>
-&lt;p>hahah
-yestl34
-2345&lt;/p></description></item><item><title>通过公网 IP 使用 RDP 与 WOL</title><link>https://littlestate.github.io/posts/%E9%80%9A%E8%BF%87%E5%85%AC%E7%BD%91-ip-%E4%BD%BF%E7%94%A8-rdp-%E4%B8%8E-wol/</link><pubDate>Sun, 28 Nov 2021 17:57:57 +0000</pubDate><guid>https://littlestate.github.io/posts/%E9%80%9A%E8%BF%87%E5%85%AC%E7%BD%91-ip-%E4%BD%BF%E7%94%A8-rdp-%E4%B8%8E-wol/</guid><description>&lt;h2 id="frp">frp&lt;/h2>
+&lt;p>已迁移至 Hugo 并使用 Github Actions 强力驱动&lt;/p></description></item><item><title>通过公网 IP 使用 RDP 与 WOL</title><link>https://littlestate.github.io/posts/%E9%80%9A%E8%BF%87%E5%85%AC%E7%BD%91-ip-%E4%BD%BF%E7%94%A8-rdp-%E4%B8%8E-wol/</link><pubDate>Sun, 28 Nov 2021 17:57:57 +0000</pubDate><guid>https://littlestate.github.io/posts/%E9%80%9A%E8%BF%87%E5%85%AC%E7%BD%91-ip-%E4%BD%BF%E7%94%A8-rdp-%E4%B8%8E-wol/</guid><description>&lt;h2 id="frp">frp&lt;/h2>
 &lt;p>在还没有公网 IP 时，通过 frp 将 3389 端口映射出来，通过 RDP 访问到主机后进行以下的操作。&lt;/p>
 &lt;h2 id="ddns">DDNS&lt;/h2>
 &lt;ol>
