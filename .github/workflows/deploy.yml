@@ -16,7 +16,6 @@ jobs:
     runs-on: self-hosted
     env:
       TZ: Asia/Shanghai
-      HUGO_CACHEDIR: /tmp/hugo_cache
       HUGO_ENVIRONMENT: production
     container:
       image: bitnami/git:latest
@@ -29,7 +28,7 @@ jobs:
         LATEST_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
         echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
 
-    # 缓存1
+    # 缓存
     - name: Cache Hugo
       id: cache-hugo
       uses: actions/cache@v4
@@ -37,19 +36,6 @@ jobs:
         path: /usr/local/bin/hugo
         key: hugo-${{ runner.os }}-${{ runner.arch }}-${{ steps.get-version.outputs.version }}
         restore-keys: hugo-${{ runner.os }}-${{ runner.arch }}-
-
-    # 缓存2
-    - name: Cache Hugo modules
-      uses: actions/cache@v4
-      with:
-        path: ${{ env.HUGO_CACHEDIR }}
-        key: hugo-modules-${{ hashFiles('go.sum') }}
-        restore-keys: |
-          hugo-modules-
-
-    # 检查缓存
-    - run: |
-        ls -lah ${HUGO_CACHEDIR}/
 
     # 安装 hugo
     - name: Setup Hugo

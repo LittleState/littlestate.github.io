@@ -1,0 +1,8 @@
+baseURL: https://littlestate.github.io/
+languageCode: zh-cn
+title: Avalon
+theme: PaperMod
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
