@@ -14,27 +14,63 @@ permissions:
 jobs:
   deploy:
     runs-on: self-hosted
+    env:
+      TZ: Asia/Shanghai
+      HUGO_CACHEDIR: /tmp/hugo_cache
+      HUGO_ENVIRONMENT: production
     container:
-      image: bitnami/git
-      env:
-        TZ: Asia/Shanghai
+      image: bitnami/git:latest
+
     steps:
-    - name: Setup Hugo
+    # 获取 hugo 最新版本号
+    - name: Get Latest Hugo Version
+      id: get-version
       run: |
         LATEST_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/v//')
-        curl -L -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${LATEST_VERSION}/hugo_${LATEST_VERSION}_linux-arm64.tar.gz
+        echo "version=${LATEST_VERSION}" >> $GITHUB_OUTPUT
+
+    # 缓存1
+    - name: Cache Hugo
+      id: cache-hugo
+      uses: actions/cache@v4
+      with:
+        path: /usr/local/bin/hugo
+        key: hugo-${{ runner.os }}-${{ runner.arch }}-${{ steps.get-version.outputs.version }}
+        restore-keys: hugo-${{ runner.os }}-${{ runner.arch }}-
+
+    # 缓存2
+    - name: Cache Hugo modules
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.HUGO_CACHEDIR }}
+        key: hugo-modules-${{ hashFiles('go.sum') }}
+        restore-keys: |
+          hugo-modules-
+
+    # 检查缓存
+    - run: |
+        ls -lah ${HUGO_CACHEDIR}/
+
+    # 安装 hugo
+    - name: Setup Hugo
+      if: steps.cache-hugo.outputs.cache-hit != 'true'
+      run: |
+        curl -L -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${{ steps.get-version.outputs.version }}/hugo_${{ steps.get-version.outputs.version }}_linux-arm64.tar.gz
         tar -xzf hugo.tar.gz
         mv hugo /usr/local/bin/
 
+    # 下载代码仓
     - uses: actions/checkout@v4
       with:
         submodules: true
         fetch-depth: 0
 
+    # 生成静态博客
     - name: Build
       run: hugo --minify
 
-    - name: Deploy to GitHub Pages
+    # 部署至 gh-page 分支
+    - name: Deploy
       env:
         REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -56,9 +92,9 @@ jobs:
 
         # 提交并推送
         if [ -n "$(git status --porcelain)" ]; then
-          git add --all
+          git add .
           git commit -m "Deploy site on $(date +'%Y-%m-%d %H:%M:%S')"
-          git push origin gh-pages --force
+          git push -f origin gh-pages
         else
           echo "Nothing to commit, working tree clean."
         fi
