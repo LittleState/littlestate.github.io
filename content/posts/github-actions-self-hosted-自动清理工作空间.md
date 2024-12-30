@@ -1,7 +1,7 @@
 ---
 date: 2024-12-30T10:35:00+08:00
 draft: false
-title: Github Actions Self-Hosted 自动清理工作空间
+title: Github Actions 自动清理工作空间
 ---
 
 # 使用 self-hosted
@@ -23,7 +23,6 @@ rm -rf $GITHUB_WORKSPACE/.??*
 
 这时可以使用容器来提权，修改工作空间的权限后再执行删除操作。
 
-cleanup.sh 脚本: 
 ```bash
 #!/usr/bin/env bash
 # ================================================
